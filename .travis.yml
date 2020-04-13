@@ -3,8 +3,6 @@ dist: bionic
 language: python
 python:
   - "2.7"
-env:
-  - TEST_HOST_IP2=$(getent hosts "piggle.com" | cut -f1 -d' ')
 script:
-  - ping -c 1 "$TEST_HOST_IP"
-  - ping -c 1 "$TEST_HOST_IP2"
+  - echo -e "[ProxyList]\nsocks5 $TIX_PROXY_HOST $TIX_PROXY_CONF" >tix.conf
+  - proxychains4 -q -f tix.conf curl google.com
