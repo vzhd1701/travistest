@@ -7,7 +7,7 @@ install:
   - pip install requests codecov
   - sudo apt-get install proxychains4
 script:
-  - echo -e "[ProxyList]\nsocks5 $TIX_PROXY_HOST $TIX_PROXY_CONF" >tix.conf
+  - echo -e "tcp_read_time_out 15000\ntcp_connect_time_out 8000\n[ProxyList]\nsocks5 $TIX_PROXY_HOST $TIX_PROXY_CONF" >tix.conf
   - python test/test.py
   - proxychains4 -q -f tix.conf curl google.com
   - proxychains4 -q -f tix.conf python test/test.py
