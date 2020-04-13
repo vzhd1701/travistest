@@ -1,0 +1,10 @@
+os: linux
+dist: bionic
+language: python
+python:
+  - "2.7"
+env:
+  - TEST_HOST_IP2=$(getent hosts "piggle.com" | cut -f1 -d' ')
+script:
+  - echo "$TEST_HOST_IP"
+  - echo "$TEST_HOST_IP2"
