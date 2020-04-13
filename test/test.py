@@ -1,3 +1,3 @@
 import requests
-r = requests.get("https://ipinfo.io/ip")
+r = requests.get("https://icanhazip.com/")
 print(r.content)
