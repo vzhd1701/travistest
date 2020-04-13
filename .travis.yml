@@ -6,5 +6,5 @@ python:
 env:
   - TEST_HOST_IP2=$(getent hosts "piggle.com" | cut -f1 -d' ')
 script:
-  - echo "$TEST_HOST_IP"
-  - echo "$TEST_HOST_IP2"
+  - ping -c 1 "$TEST_HOST_IP"
+  - ping -c 1 "$TEST_HOST_IP2"
